@@ -34,3 +34,12 @@ git push ssh://git-codecommit.${aws_region}.amazonaws.com/v1/repos/${codecommit_
 # CleanUp - Remove local copy
 rm -rf ${migration_dir}
 ```
+
+## Support
+Please open a [GitHub issue](https://github.com/miztiik/migrate-from-github-to-codecommit/issues/new).
+
+## Feedback
+Please open a [GitHub issue](https://github.com/miztiik/migrate-from-github-to-codecommit/issues/new). I do encourage you to contribute your changes and send me pull request.
+
+##### References
+[1] - [AWS Docs - Migrate a Git Repository](https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-migrate-repository-existing.html)
