@@ -11,25 +11,24 @@ You can migrate an existing Git repository to a CodeCommit repository. This demo
 ## Customize your variables
 ```sh
 migration_dir="./_trash"
-
 git_url="https://github.com/miztiik/lex-faq-bot.git"
 aws_region="eu-central-1"
 codecommit_repo_name="lex-faq-bot"
 ```
 
 ## Initiate Migration
-    ```sh
-    # Create CodeCommit Repo
-    aws codecommit create-repository --repository-name  --repository-description "My shiny new chat bot"
+```sh
+# Create CodeCommit Repo
+aws codecommit create-repository --repository-name  --repository-description "My shiny new chat bot"
 
-    # Clone Git to local (only for migration purposes; not for local development)
-    git clone --mirror ${git_url} ${migration_dir}
+# Clone Git to local (only for migration purposes; not for local development)
+git clone --mirror ${git_url} ${migration_dir}
 
-    # Push the repo to CodeCommit
-    cd ${migration_dir}
-    git push ssh://git-codecommit.${aws_region}.amazonaws.com/v1/repos/${codecommit_repo_name} --all
-    git push ssh://git-codecommit.${aws_region}.amazonaws.com/v1/repos/${codecommit_repo_name} --tags
+# Push the repo to CodeCommit
+cd ${migration_dir}
+git push ssh://git-codecommit.${aws_region}.amazonaws.com/v1/repos/${codecommit_repo_name} --all
+git push ssh://git-codecommit.${aws_region}.amazonaws.com/v1/repos/${codecommit_repo_name} --tags
 
-    # CleanUp - Remove local copy
-    rm -rf ${migration_dir}
-    ```
+# CleanUp - Remove local copy
+rm -rf ${migration_dir}
+```
