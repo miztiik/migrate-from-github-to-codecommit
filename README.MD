@@ -19,7 +19,7 @@ codecommit_repo_name="lex-faq-bot"
 ## Initiate Migration
 ```sh
 # Create CodeCommit Repo
-aws codecommit create-repository --repository-name  --repository-description "My shiny new chat bot"
+aws codecommit create-repository --repository-name ${codecommit_repo_name} --repository-description "My shiny new chat bot"
 
 # Clone Git to local (only for migration purposes; not for local development)
 git clone --mirror ${git_url} ${migration_dir}
