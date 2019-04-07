@@ -1,14 +1,15 @@
 # Migrate from Github to AWS CodeCommit
 You can migrate an existing Git repository to a CodeCommit repository. This demos shows you how to migrate a project hosted on another Git repository to CodeCommit.
 
-![Fig : Migrate from Github to AWS CodeCommit](https://raw.githubusercontent.com/miztiik/serverless-kms-sentry/master/images/serverless-kms-sentry.png)
+![Fig : Migrate from Github to AWS CodeCommit](https://raw.githubusercontent.com/miztiik/migrate-from-github-to-codecommit/master/images/miztiik-github-to-codecommit.png)
 
 #### Follow this article in [Youtube](https://youtu.be/UYaV-VfnbT8)
 
 ## Prerequisites
 1. Setup CodeCommit [Get help here](https://www.youtube.com/watch?v=78KM7AXN4AA)
 
-## Customize your variables
+## Migration Details
+_Update the values to match your repo details_
 ```sh
 migration_dir="./_trash"
 git_url="https://github.com/miztiik/lex-faq-bot.git"
