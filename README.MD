@@ -29,8 +29,8 @@ git clone --mirror ${git_url} ${migration_dir}
 
 # Push the repo to CodeCommit
 cd ${migration_dir}
-git push ssh://git-codecommit.${aws_region}.amazonaws.com/v1/repos/${codecommit_repo_name} --all
-git push ssh://git-codecommit.${aws_region}.amazonaws.com/v1/repos/${codecommit_repo_name} --tags
+git push ssh://git-codecommit.${aws_region}.amazonaws.com/v1/repos/${repo_name} --all
+git push ssh://git-codecommit.${aws_region}.amazonaws.com/v1/repos/${repo_name} --tags
 
 # CleanUp - Remove local copy
 rm -rf ${migration_dir}
