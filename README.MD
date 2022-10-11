@@ -11,28 +11,38 @@ You can migrate any existing Git repository to a CodeCommit repository. This dem
 ## Migration Details
 _Update the below values to match your requirements_
 ```sh
+#!/usr/bin/env bash
+
+# Source Repo Info
+repo_name="asdf"
+git_url="git@gitlab.com:daxm/${repo_name}.git"
+
+# Dest Repo Info
+description="This is a description."
+aws_region="us-west-2"
+ssh_key_id="asdfasdfasdfasdf"
+
+# Local Usage
 migration_dir="./_trash"
-git_url="https://github.com/miztiik/lex-faq-bot.git"
-aws_region="eu-central-1"
-codecommit_repo_name="lex-faq-bot"
 ```
 
 ## Initiate Migration
 ```sh
 # Create CodeCommit Repo
-aws codecommit create-repository \
-  --repository-name ${codecommit_repo_name} \
-  --repository-description "My shiny new chat bot"
+aws --region ${aws_region} codecommit create-repository \
+  --repository-name "${repo_name}" \
+  --repository-description "${description}"
 
 # Clone Git to local (only for migration purposes; not for local development)
 git clone --mirror ${git_url} ${migration_dir}
 
 # Push the repo to CodeCommit
 cd ${migration_dir}
-git push ssh://git-codecommit.${aws_region}.amazonaws.com/v1/repos/${codecommit_repo_name} --all
-git push ssh://git-codecommit.${aws_region}.amazonaws.com/v1/repos/${codecommit_repo_name} --tags
+git push ssh://${ssh_key_id}@git-codecommit.${aws_region}.amazonaws.com/v1/repos/${codecommit_repo_name} --all
+git push ssh://${ssh_key_id}@git-codecommit.${aws_region}.amazonaws.com/v1/repos/${codecommit_repo_name} --tags
 
 # CleanUp - Remove local copy
+cd ..
 rm -rf ${migration_dir}
 ```
 
