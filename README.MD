@@ -13,12 +13,14 @@ _Update the below values to match your requirements_
 ```sh
 #!/usr/bin/env bash
 
+# Unique to this repo
+repo_name="my-repo-name"
+description="This is a description."
+
 # Source Repo Info
-repo_name="asdf"
 git_url="git@gitlab.com:daxm/${repo_name}.git"
 
 # Dest Repo Info
-description="This is a description."
 aws_region="us-west-2"
 ssh_key_id="asdfasdfasdfasdf"
 
